@@ -1,0 +1,391 @@
+/* ===== Player layout ===== */
+.player {
+  max-width: 860px;
+  margin: 32px auto;
+  padding: 0 16px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: #e2e8f0;
+}
+
+.player__title {
+  text-align: center;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0 0 24px;
+}
+
+.player__body {
+  background: #0f172a;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+.player__loading {
+  text-align: center;
+  padding: 24px;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+/* ===== Toolbar ===== */
+.player__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 20px;
+  background: #1e293b;
+  border-top: 1px solid #334155;
+}
+
+@media (max-width: 560px) {
+  .player__toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+}
+
+/* ===== AudioUploader (Drag & Drop) ===== */
+.uploader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 220px;
+  margin: 20px;
+  padding: 32px 20px;
+  border: 2px dashed #475569;
+  border-radius: 12px;
+  background: #1e293b;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.uploader--dragging {
+  border-color: #3b82f6;
+  background: #1e3a5f;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.uploader--disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.uploader__icon {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.uploader__text {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #94a3b8;
+}
+
+.uploader__btn {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 10px 22px;
+  background: #3b82f6;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.uploader__btn:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.uploader__btn:active {
+  transform: translateY(0);
+}
+
+.uploader__btn:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+/* ===== Controls (Play / Pause / Stop) ===== */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.controls__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+  color: #fff;
+}
+
+.controls__btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.controls__btn:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+/* Play — головна кнопка */
+.controls__btn--play {
+  background: #22c55e;
+  min-width: 96px;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.35);
+}
+
+.controls__btn--play:hover:not(:disabled) {
+  background: #16a34a;
+  transform: translateY(-1px);
+}
+
+.controls__btn--play:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Pause */
+.controls__btn--pause {
+  background: #eab308;
+  color: #1e293b;
+  min-width: 96px;
+}
+
+.controls__btn--pause:hover:not(:disabled) {
+  background: #ca8a04;
+  transform: translateY(-1px);
+}
+
+.controls__btn--pause:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Stop */
+.controls__btn--stop {
+  background: #475569;
+  min-width: 44px;
+  padding: 0 14px;
+}
+
+.controls__btn--stop:hover:not(:disabled) {
+  background: #ef4444;
+  transform: translateY(-1px);
+}
+
+.controls__btn--stop:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* ===== Volume ===== */
+.volume {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  max-width: 200px;
+}
+
+.volume__icon {
+  font-size: 1.15rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.volume__slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: #334155;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.volume__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #3b82f6;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.volume__slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.volume__slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #3b82f6;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.volume__slider:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.volume__slider:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  .volume {
+    max-width: none;
+  }
+}
+/* Час у тулбарі */
+.player__time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  color: #94a3b8;
+  min-width: 90px;
+}
+
+.player__time-sep {
+  opacity: 0.5;
+}
+
+/* Тулбар: час | кнопки | volume */
+.player__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  background: #1e293b;
+  border-top: 1px solid #334155;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 560px) {
+  .player__toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .player__time {
+    justify-content: center;
+  }
+
+  .controls {
+    justify-content: center;
+  }
+
+  .volume {
+    max-width: none;
+  }
+} /* Кнопка mute */
+.volume__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: none;
+  background: transparent;
+  color: #e2e8f0;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.volume__icon-btn:hover:not(:disabled) {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.volume__icon-btn:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.volume__icon-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Кнопка «інший файл» */
+.player__reload-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: #334155;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.player__reload-btn:hover {
+  background: #475569;
+  color: #38bdf8;
+}
+
+.player__reload-btn:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+/* Кнопки Play/Pause тепер іконки — трохи компактніше */
+.controls__btn--play,
+.controls__btn--pause {
+  min-width: 48px;
+  padding: 0 14px;
+}
+.player__header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 0 8px;
+}
+
+.player__title {
+  margin: 0 0 6px;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.player__filename {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #b294b8;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
