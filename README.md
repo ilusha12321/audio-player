@@ -39,33 +39,6 @@
 * Темний сучасний інтерфейс
 * Адаптивний дизайн
 
-## Структура проєкту
-
-src/
-├── components/
-│   ├── Player/
-│   │   ├── AudioUploader.tsx
-│   │   ├── PlayerControls.tsx
-│   │   ├── TrackInfo.tsx
-│   │   ├── VolumeControl.tsx
-│   │   └── Player.css
-│   │
-│   └── Waveform/
-│
-├── audio/
-│   └── SoundDriver.ts
-│
-├── visualization/
-│   └── Drawer/
-│
-├── hooks/
-│   └── useAudioPlayer.ts
-│
-├── types/
-│
-├── App.tsx
-└── main.tsx
-
 1. Завантажте аудіофайл через кнопку вибору файлу або за допомогою Drag & Drop.
 2. Аудіофайл завантажується у плеєр.
 3. Для треку створюється візуалізація аудіохвилі.
