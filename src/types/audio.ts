@@ -1,24 +1,61 @@
-/** Стан плеєра для UI */
-export type PlayerStatus = 'idle' | 'loading' | 'ready' | 'playing' | 'paused';
+/** Возможные состояния плеера */
+export type PlayerStatus =
+  | 'idle'      // файл ещё не выбран
+  | 'loading'   // файл загружается
+  | 'ready'     // файл загружен и готов
+  | 'playing'   // воспроизводится
+  | 'paused';   // поставлен на паузу
 
-/** Публічний API useAudioPlayer */
+
+/** Что возвращает useAudioPlayer */
 export interface AudioPlayerControls {
+
+  // Текущее состояние плеера.
   status: PlayerStatus;
+
+  // Можно ли показывать основной интерфейс плеера.
   isReady: boolean;
+
+  // Сейчас играет или нет.
   isPlaying: boolean;
+
+  // Общая длительность аудио в секундах.
   duration: number;
+
+  // Текущее время проигрывания.
   currentTime: number;
+
+  // Громкость от 0 до 1.
   volume: number;
-  /** Ім’я поточного файлу (file.name) або '' */
+
+  // Имя выбранного файла.
   fileName: string;
+
+
+  // Загружает аудиофайл.
   loadFile: (file: File) => Promise<void>;
+
+  // Запускает воспроизведение.
   play: () => Promise<void>;
+
+  // Ставит аудио на паузу.
   pause: () => Promise<void>;
+
+  // Останавливает аудио и возвращает время в 0.
   stop: () => Promise<void>;
+
+  // Переходит на указанное время.
   seek: (time: number) => Promise<void>;
+
+  // Изменяет громкость.
   setVolume: (value: number) => void;
+
+  // Включает/выключает звук.
   toggleMute: () => void;
-  /** Повернути UI до стану вибору файлу */
+
+  // Возвращает интерфейс к выбору файла.
   resetToUploader: () => void;
+
+  // Получает AudioBuffer для Waveform.
   getAudioBuffer: () => AudioBuffer | null;
 }

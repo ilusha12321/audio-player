@@ -1,7 +1,19 @@
-/** Налаштування D3-графіка */
+/** Настройки D3-графика */
 export interface WaveformOptions {
-  margin?: { top: number; bottom: number; left: number; right: number };
+  // Отступы графика от краёв.
+  margin?: {
+    top: number;
+    bottom: number;
+    left: number;
+    right: number;
+  };
+
+  // Высота графика.
   height?: number;
+
+  // Ширина графика.
   width?: number;
+
+  // Насколько широкими будут полоски waveform.
   padding?: number;
 }
