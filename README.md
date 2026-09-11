@@ -1,75 +1,97 @@
-# React + TypeScript + Vite
+# Audio Player
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Сучасний вебаудіоплеєр, створений за допомогою **React + TypeScript**.
 
-Currently, two official plugins are available:
+Додаток дозволяє завантажувати аудіофайли, відтворювати їх, керувати гучністю та переглядати аудіохвилю треку.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Preview
+<img width="1033" height="545" alt="image" src="https://github.com/user-attachments/assets/057b6e83-75db-43d3-9b23-5b2ad7779d62" />
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## Технології
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* React
+* TypeScript
+* Vite
+* D3.js
+* Web Audio API
+* Lucide React
+* HTML5 Audio
+* CSS
+* Git / GitHub
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Можливості
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* Завантаження аудіофайлів
+* Drag & Drop для завантаження файлів
+* Відтворення та пауза
+* Зупинка відтворення
+* Регулювання гучності
+* Вимкнення та увімкнення звуку
+* Відображення назви поточного треку
+* Візуалізація аудіохвилі
+* Перемотування треку через аудіохвилю
+* Перетягування курсора відтворення
+* Попередній перегляд позиції при наведенні
+* Відображення поточного часу відтворення
+* Скидання позиції після зупинки
+* Темний сучасний інтерфейс
+* Адаптивний дизайн
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Структура проєкту
 
-```
+src/
+├── components/
+│   ├── Player/
+│   │   ├── AudioUploader.tsx
+│   │   ├── PlayerControls.tsx
+│   │   ├── TrackInfo.tsx
+│   │   ├── VolumeControl.tsx
+│   │   └── Player.css
+│   │
+│   └── Waveform/
+│
+├── audio/
+│   └── SoundDriver.ts
+│
+├── visualization/
+│   └── Drawer/
+│
+├── hooks/
+│   └── useAudioPlayer.ts
+│
+├── types/
+│
+├── App.tsx
+└── main.tsx
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Завантажте аудіофайл через кнопку вибору файлу або за допомогою Drag & Drop.
+2. Аудіофайл завантажується у плеєр.
+3. Для треку створюється візуалізація аудіохвилі.
+4. Використовуйте кнопки керування для відтворення, паузи та зупинки.
+5. Натискайте або перетягуйте курсор на аудіохвилі для перемотування.
+6. Регулюйте гучність за допомогою відповідного контролера.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Особливості реалізації
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Проєкт створений як практичний React + TypeScript застосунок для роботи з:
 
-```
+* компонентною архітектурою React;
+* власними React Hooks;
+* TypeScript-типізацією;
+* Web Audio API;
+* D3.js;
+* обробкою DOM-подій;
+* завантаженням файлів;
+* Drag & Drop API;
+* керуванням станом;
+* Git та GitHub.
+
+## Мета проєкту
+
+Основна мета проєкту — практичне застосування React, TypeScript та Web API під час створення повноцінного аудіоплеєра з інтерактивною візуалізацією.
+
+## Ліцензія
+
+Проєкт створений для навчальних та портфоліо-цілей.
